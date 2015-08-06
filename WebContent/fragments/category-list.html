@@ -1,0 +1,15 @@
+<div class="row">
+	<div class="col-xs-6 col-sm-3" ng-repeat="category in categories" >
+		<div class="item-list" >
+			<h5>
+				{{category.name}}
+				<small>14</small>
+			</h5>
+			<ul>
+				<li ng-repeat="subcat in category.subcategories" >
+					<a href="#/categories/{{category.id}}/{{subcat.id}}">{{subcat.name}}</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+</div>

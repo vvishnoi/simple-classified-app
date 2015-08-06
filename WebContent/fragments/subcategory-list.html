@@ -1,0 +1,82 @@
+
+<div class="row">
+	<div class="col-xs-10 col-sm-10">
+		<div class="btn-group btn-group-xs pull-right item-list-select" role="group" aria-label="...">
+			<a href="" class="btn btn-default" ng-click="listSelect('list')" ng-class="{active:isSet('list')}"> List </a>
+			<a href="" class="btn btn-default" ng-click="listSelect('thumb')" ng-class="{active:isSet('thumb')}"> Thumbnail </a>
+			<a href="" class="btn btn-default" ng-click="listSelect('galary')" ng-class="{active:isSet('galary')}"> Galary </a>
+			<div class="btn-group btn-group-xs" role="group">
+				<button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+					Sort <span class="caret"></span>
+				</button>
+				<ul class="dropdown-menu" role="menu">
+					<li><a href="#">Newest First</a></li>
+					<li><a href="#">Price: Lowest First</a></li>
+					<li><a href="#">Price: Highest First</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="row" ng-if="selected === 'list'">
+	<div class="col-xs-10 col-sm-10" ng-repeat="item in items">
+		<ul class="list-unstyled">
+			<li><a href="#/categories/{{item.category}}/{{item.subcategory}}/{{item.id}}">{{item.title}}</a></li>
+		</ul>
+	</div>
+</div>
+
+<div class="row" ng-if="selected === 'thumb'">
+	<div class="col-xs-10 col-sm-10">
+		<ul class="items">
+			<li ng-repeat="item in items" class="thumbnail item-listing"><a href="#/categories/{{item.category}}/{{item.subcategory}}/{{item.id}}"
+					class="thumb">
+					<img ng-src="{{item.image}}">
+				</a> <a href="#/categories/{{item.category}}/{{item.subcategory}}/{{item.id}}">{{item.title}}</a>
+				<p>{{item.title}}</p></li>
+		</ul>
+	</div>
+</div>
+<div class="row" ng-if="selected === 'galary'">
+	<div class="col-xs-6 col-sm-3" ng-repeat="item in items">
+		<div class="thumbnail">
+			<a href="#/categories/{{item.category}}/{{item.subcategory}}/{{item.id}}">
+				<img class="img-responsive" ng-src="{{item.image}}" />
+			</a>
+			<div class="caption">
+				<p>{{item.title}}</p>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- <div class="row">
+	<div class="col-xs-9 col-sm-9"  >
+			<ul class="media-list">
+				<li class="media" ng-repeat="item in items">
+					<div class="media-left">
+						<a
+							href="#/categories/{{item.category}}/{{item.subcategory}}/{{item.id}}">
+							<img class="media-object img-circle" ng-src="{{item.image}}"
+							alt="...">
+						</a>
+					</div>
+					<div class="media-body">
+						<h5 class="media-heading">
+							<a
+								href="#/categories/{{item.category}}/{{item.subcategory}}/{{item.id}}">{{item.title}}</a><small
+								class="pull-right">Location - Philadelphia, Asked Price
+								- $150 </small> <br /> <small class="text-muted">Yesterday 5:20
+								pm - 12.06.2014</small>
+						</h5>
+						<p>{{item.title}}</p>
+						<div class="pull-right">
+							<a class="btn btn-xs btn-white"><i class="fa fa-thumbs-up"></i>
+								10 </a> <a class="btn btn-xs btn-white"><i
+								class="fa fa-thumbs-down"></i>6 </a>
+
+						</div>
+					</div>
+				</li>
+			</ul>
+		</div>
+	</div> -->

@@ -1,0 +1,17 @@
+logs/*
+!.gitkeep
+node_modules/
+tmp
+.idea
+.DS_Store
+components/
+.project
+.classpath
+.settings
+.tern-project
+/target/
+.springBeans
+MANIFEST.MF
+gradle*
+*gradle
+WebContent/img/*
