@@ -22,7 +22,13 @@ classifiedControllers.controller("SubCategoryListCtrl", [ '$scope',
 		function($scope, $routeParams, SubCategory) {
 			console.info('SubCategoryListCtrl');
 			console.info($routeParams);
-			$scope.items = SubCategory.query();
+
+			var categoryId = $routeParams.categoryId;
+			var subCategoryId = $routeParams.subCategoryId;
+
+			$scope.subCategory = SubCategory.get({
+				subCategoryId : subCategoryId
+			});
 
 			// list type selector
 			$scope.selected = 'list';
@@ -41,8 +47,13 @@ classifiedControllers.controller("ItemDetailCtrl", [ '$scope', '$routeParams',
 			console.info('ItemDetailCtrl');
 			console.info($routeParams);
 
+			var subcategoryId = $routeParams.subcategoryId;
+			var itemId = $routeParams.itemId;
+
 			// Get Item Detail - service Call
-			$scope.itemDetail = Item.get();
+			$scope.item = Item.get({
+				itemId : itemId
+			});
 
 			// Tab start
 			$scope.tab = 1;

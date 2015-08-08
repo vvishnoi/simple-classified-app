@@ -1,18 +1,17 @@
-<div class="container">
 	<div class="row clearfix">
 		<div class="col-md-8 column">
 			<div class="thumbnail">
 				<div>
-					<img class="img img-rounded img-thumbnail center-block " ng-src="{{itemDetail.image}}" />
+					<img class="img img-rounded img-thumbnail center-block " ng-src="{{item.images[0].url}}" />
 					<div class="spacer10"></div>
 					<ul class="clearfix">
-						<li class="small-image pull-left thumbnail" ng-repeat="imgURL in itemDetail.images">
-							<img ng-src="{{imgURL}}" />
+						<li class="small-image pull-left thumbnail" ng-repeat="img in item.images">
+							<img ng-src="{{img.url}}" />
 						</li>
 					</ul>
 				</div>
 				<div class="caption">
-					<h3>{{itemDetail.title}}</h3>
+					<h3>{{item.name}}</h3>
 					<div role="tabpanel">
 						<!-- Nav tabs -->
 						<ul class="nav nav-tabs" role="tablist">
@@ -26,7 +25,7 @@
 						<!-- Tab panes -->
 						<div class="tab-content">
 							<div role="tabpanel" class="tab-pane" id="details" ng-class="{active:isSet(1)}">
-								<p>{{itemDetail.detail}}</p>
+								<p>{{item.detail}}</p>
 							</div>
 							<div role="tabpanel" class="tab-pane" id="contact" ng-class="{active:isSet(2)}">
 								<section>
@@ -71,4 +70,3 @@
 			</div>
 		</div>
 	</div>
-</div>

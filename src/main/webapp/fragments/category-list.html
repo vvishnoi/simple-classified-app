@@ -6,8 +6,8 @@
 				<small>14</small>
 			</h5>
 			<ul>
-				<li ng-repeat="subcat in category.subcategories" >
-					<a href="#/categories/{{category.id}}/{{subcat.id}}">{{subcat.name}}</a>
+				<li ng-repeat="subcat in category.subCategories" >
+					<a href="#/{{category.name | lowercase}}/{{subcat.name}}/ct/{{category.id}}/sct/{{subcat.id}}">{{subcat.name}}</a>
 				</li>
 			</ul>
 		</div>

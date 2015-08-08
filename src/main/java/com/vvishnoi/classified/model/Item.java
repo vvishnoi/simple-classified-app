@@ -5,6 +5,7 @@ import java.util.Set;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
@@ -26,7 +27,7 @@ public class Item extends NamedEntity {
 	private SubCategory subCategory;
 	
 	@JsonManagedReference
-	@OneToMany(cascade = CascadeType.ALL, mappedBy = "item")
+	@OneToMany(mappedBy = "item", cascade=CascadeType.ALL, fetch=FetchType.EAGER)
 	private Set<Image> images;
 
 	@Column(name = "detail")

@@ -1,0 +1,34 @@
+
+CREATE TABLE categories (
+  id         INTEGER IDENTITY PRIMARY KEY,
+  name       VARCHAR(100)
+);
+
+
+CREATE TABLE sub_categories (
+  id   INTEGER IDENTITY PRIMARY KEY,
+  name VARCHAR(100),
+  category_id   INTEGER NOT NULL,
+  adult BOOLEAN DEFAULT FALSE NOT NULL
+);
+
+
+CREATE TABLE items (
+  id   INTEGER IDENTITY PRIMARY KEY,
+  name VARCHAR(500),
+  subcategory_id INTEGER NOT NULL,
+  detail VARCHAR(10000)
+);
+
+CREATE TABLE images (
+  id   INTEGER IDENTITY PRIMARY KEY,
+  item_id INTEGER NOT NULL,
+  url VARCHAR(1000),
+  main_Image BOOLEAN DEFAULT FALSE NOT NULL
+);
+
+
+
+
+
+

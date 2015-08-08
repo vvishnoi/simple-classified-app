@@ -2,8 +2,10 @@ package com.vvishnoi.classified.model;
 
 import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
@@ -25,7 +27,7 @@ public class SubCategory extends NamedEntity {
 	private Category category;
 	
 	@JsonManagedReference
-	@OneToMany(mappedBy = "subCategory")
+	@OneToMany(mappedBy = "subCategory", cascade=CascadeType.ALL,  fetch=FetchType.LAZY)
 	private Set<Item> items;
 
 	@Column(name = "adult")
