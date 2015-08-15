@@ -1,7 +1,7 @@
 'use strict';
 
 /* Controllers */
-var classifiedControllers = angular.module('classifiedControllers', []);
+var classifiedControllers = angular.module('classifiedControllers', ['ngMessages']);
 
 classifiedControllers.controller("CategoryListCtrl", [ '$scope', 'Category',
 		function($scope, Category) {
@@ -76,7 +76,23 @@ classifiedControllers.controller("ItemDetailCtrl", [ '$scope', '$routeParams',
 
 		} ]);
 
-classifiedControllers.controller("postAdCtrl", [ '$scope', 'Category',
-		function($scope, Category) {
+classifiedControllers.controller("postAdCtrl", [ '$scope', 'Category', 'Item',
+		function($scope, Category, Item) {
 			console.info('postAdCtrl');
+
+			$scope.item = new Item();
+			$scope.categories = Category.query();
+			$scope.isPosted = false;
+
+			$scope.postAd = function() {
+				console.info("creating new add");
+				console.info('item' + $scope.item);
+
+				if (postAdForm.$valid) {
+					$scope.item.$save();
+					// TODO ERROR HANdling
+					$scope.isPosted = true;
+				}
+			};
+
 		} ]);

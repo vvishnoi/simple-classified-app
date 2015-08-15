@@ -13,6 +13,7 @@
     "angular-route": "1.4.x",
     "angular-resource": "1.4.x",
     "angular-animate": "1.4.x",
+    "angular-messages": "1.4.x",
     "font-awesome" : "4.x"
   }
 }

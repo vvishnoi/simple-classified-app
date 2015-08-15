@@ -18,7 +18,7 @@ public class Category extends NamedEntity {
 	public Category() {
 	}
 	
-	@JsonManagedReference
+	@JsonManagedReference(value="category-subcategory")
 	@OneToMany(mappedBy = "category", cascade=CascadeType.ALL,  fetch = FetchType.EAGER)
 	private Set<SubCategory> subCategories;
 

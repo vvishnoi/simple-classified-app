@@ -12,12 +12,26 @@ CREATE TABLE sub_categories (
   adult BOOLEAN DEFAULT FALSE NOT NULL
 );
 
+CREATE TABLE owner (
+  id   INTEGER IDENTITY PRIMARY KEY,
+  name VARCHAR(100),
+  email VARCHAR(100),
+  phone VARCHAR(50)
+);
+
+CREATE TABLE location (
+  id   INTEGER IDENTITY PRIMARY KEY,
+  city VARCHAR(200),
+  country VARCHAR(200)
+);
 
 CREATE TABLE items (
   id   INTEGER IDENTITY PRIMARY KEY,
   name VARCHAR(500),
   subcategory_id INTEGER NOT NULL,
-  detail VARCHAR(10000)
+  detail VARCHAR(10000),
+  owner_id INTEGER NOT NULL,
+  location_id INTEGER NOT NULL
 );
 
 CREATE TABLE images (
@@ -26,9 +40,6 @@ CREATE TABLE images (
   url VARCHAR(1000),
   main_Image BOOLEAN DEFAULT FALSE NOT NULL
 );
-
-
-
 
 
 

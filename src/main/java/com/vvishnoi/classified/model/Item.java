@@ -21,17 +21,29 @@ public class Item extends NamedEntity {
 	public Item() {
 	}
 
-	@JsonBackReference
+	@JsonBackReference(value="item-owner")
+	@ManyToOne
+	@JoinColumn(name = "owner_id")
+	private Owner owner;
+
+	@JsonBackReference(value="item-subcategory")
 	@ManyToOne
 	@JoinColumn(name = "subcategory_id")
 	private SubCategory subCategory;
+
+	@JsonBackReference(value="item-location")
+	@ManyToOne
+	@JoinColumn(name = "location_id")
+	private Location location;
 	
-	@JsonManagedReference
-	@OneToMany(mappedBy = "item", cascade=CascadeType.ALL, fetch=FetchType.EAGER)
+	@JsonManagedReference(value="item-image")
+	@OneToMany(mappedBy = "item", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	private Set<Image> images;
 
 	@Column(name = "detail")
 	private String detail;
+
+
 
 	public SubCategory getSubCategory() {
 		return subCategory;
@@ -55,6 +67,22 @@ public class Item extends NamedEntity {
 
 	public void setDetail(String detail) {
 		this.detail = detail;
+	}
+
+	public Owner getOwner() {
+		return owner;
+	}
+
+	public void setOwner(Owner owner) {
+		this.owner = owner;
+	}
+
+	public Location getLocation() {
+		return location;
+	}
+
+	public void setLocation(Location location) {
+		this.location = location;
 	}
 
 }

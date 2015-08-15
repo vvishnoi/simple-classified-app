@@ -21,12 +21,12 @@ public class SubCategory extends NamedEntity {
 	public SubCategory() {
 	}
 	
-	@JsonBackReference
+	@JsonBackReference(value="category-subcategory")
 	@ManyToOne
 	@JoinColumn(name = "category_id")
 	private Category category;
 	
-	@JsonManagedReference
+	@JsonManagedReference(value="item-subcategory")
 	@OneToMany(mappedBy = "subCategory", cascade=CascadeType.ALL,  fetch=FetchType.LAZY)
 	private Set<Item> items;
 

@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.vvishnoi.classified.model.Item;
 import com.vvishnoi.classified.repository.ItemRepository;
+import com.vvishnoi.classified.service.ItemService;
 
 @RestController
 @RequestMapping("/item")
@@ -21,6 +22,9 @@ public class ItemController {
 	@Autowired
 	private ItemRepository repo;
 
+	@Autowired
+	private ItemService service;
+
 	@RequestMapping(method = RequestMethod.GET)
 	public List<Item> list() {
 		return repo.findAll();
@@ -28,7 +32,7 @@ public class ItemController {
 
 	@RequestMapping(method = RequestMethod.POST)
 	public Item save(@RequestBody Item value) {
-		return repo.save(value);
+		return service.save(value);
 	}
 
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
